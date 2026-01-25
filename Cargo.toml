@@ -1,0 +1,22 @@
+[package]
+name = "visual-novel"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { version = "0.17.3", features = ["jpeg"]}
+bevy-inspector-egui = "0.35.0"
+
+
+
+[profile.dev]
+opt-level = 1
+panic="abort"
+
+# Enable a large amount of optimization in the dev profile for dependencies.
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+panic="abort"
+

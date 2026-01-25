@@ -40,3 +40,7 @@ out/
 # === Save files (VN specific) ===
 saves/
 .idea
+
+# Added by cargo
+
+/target
