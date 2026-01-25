@@ -1,0 +1,42 @@
+# === Rust / Cargo ===
+/target/
+**/*.rs.bk
+Cargo.lock
+*.pdb
+
+# === Bevy / Assets ===
+assets/.cache/
+assets/**/*.tmp
+
+# Hot-reload artifacts (if you use them)
+.bevy/
+
+# === Editor / IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# === OS ===
+.AppleDouble
+.LSOverride
+
+# === Logs / Debug ===
+*.log
+
+# === Build outputs ===
+dist/
+build/
+out/
+
+# === Temporary / Generated ===
+*.tmp
+*.bak
+*.old
+
+# === Save files (VN specific) ===
+saves/
+.idea
