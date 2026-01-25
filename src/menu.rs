@@ -1,5 +1,6 @@
 use bevy::prelude::*;
 use crate::AppState;
+use crate::utils::{MenuButtonAction};
 
 pub struct MenuPlugin;
 
@@ -14,11 +15,6 @@ impl Plugin for MenuPlugin {
 #[derive(Component)]
 struct MenuData;
 
-#[derive(Component, Clone, Copy)]
-enum MenuButtonAction {
-    Play,
-    Quit,
-}
 
 fn setup_menu(mut commands: Commands) {
     // Camera

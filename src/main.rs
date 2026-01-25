@@ -3,6 +3,8 @@ use bevy::prelude::*;
 mod menu;
 mod game;
 
+mod utils;
+
 #[derive(States, Debug, Clone, Copy, Eq, PartialEq, Hash, Default)]
 pub enum AppState {
     #[default]
