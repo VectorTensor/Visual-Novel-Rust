@@ -7,7 +7,7 @@ pub struct GamePlugin;
 impl Plugin for GamePlugin {
     fn build(&self, app: &mut App)
     {
-        app.add_systems(OnEnter(AppState::InGame), setup_game)
+        app.add_systems(OnEnter(AppState::InGame), setup_game_menu_ui)
             .add_systems(Update, game_ui_action.run_if(in_state(AppState::InGame)))
             .add_systems(OnExit(AppState::InGame), cleanup_menu);
 
@@ -17,7 +17,7 @@ impl Plugin for GamePlugin {
 #[derive(Component)]
 struct GameData;
 
-fn setup_game(mut commands: Commands) {
+fn setup_game_menu_ui(mut commands: Commands) {
     commands.spawn((Camera2d::default(), GameData));
     
     commands.spawn((
