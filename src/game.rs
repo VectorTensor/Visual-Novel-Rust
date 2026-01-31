@@ -11,8 +11,6 @@ impl Plugin for GamePlugin {
             .add_systems(Update, game_ui_action.run_if(in_state(AppState::InGame)))
             .add_systems(OnExit(AppState::InGame), cleanup_menu);
 
-
-
     }
 }
 
@@ -46,8 +44,8 @@ fn setup_game(mut commands: Commands) {
             width: Val::Percent(100.0),
             height: Val::Percent(100.0),
             flex_direction: FlexDirection::Column,
-            align_items: AlignItems::Center,
-            justify_content: JustifyContent::Center,
+            align_items: AlignItems::FlexEnd,
+            justify_content: JustifyContent::Start,
             row_gap: Val::Px(10.0),
             ..default()
         },
