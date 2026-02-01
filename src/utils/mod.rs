@@ -74,7 +74,7 @@ macro_rules! simple_box {
                     text_parent.spawn((
                         Text::new(text),
                         TextFont {
-                            font_size: 40.0,
+                            font_size: 20.0,
                             ..default()
                         },
                         TextColor(Color::WHITE),

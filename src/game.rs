@@ -71,9 +71,9 @@ fn setup_gameplay_ui(mut commands: Commands){
         Node {
             width: Val::Percent(100.0),
             height: Val::Percent(100.0),
-            flex_direction: FlexDirection::Row,
-            align_items: AlignItems::FlexEnd,
-            justify_content: JustifyContent::Center,
+            flex_direction: FlexDirection::Column,
+            align_items: AlignItems::FlexStart,
+            justify_content: JustifyContent::FlexEnd,
             row_gap: Val::Px(10.0),
             ..default()
         },
@@ -81,7 +81,8 @@ fn setup_gameplay_ui(mut commands: Commands){
 
     ))
         .with_children(|parent| {
-            simple_box!(parent, Val::Percent(90.0), Val::Percent(25.0), None::<&str>);
+            simple_box!(parent, Val::Percent(10.0), Val::Percent(7.0),Some("Hello"));
+            simple_box!(parent, Val::Percent(90.0), Val::Percent(25.0), Some("This is a test dialogue"));
         });
 
 }
