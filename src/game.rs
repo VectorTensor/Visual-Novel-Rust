@@ -7,7 +7,7 @@ pub struct GamePlugin;
 impl Plugin for GamePlugin {
     fn build(&self, app: &mut App)
     {
-        app.add_systems(OnEnter(AppState::InGame), setup_game_menu_ui)
+        app.add_systems(OnEnter(AppState::InGame), (setup_game_menu_ui, setup_gameplay_ui))
             .add_systems(Update, game_ui_action.run_if(in_state(AppState::InGame)))
             .add_systems(OnExit(AppState::InGame), cleanup_menu);
 
@@ -85,6 +85,42 @@ fn setup_game_menu_ui(mut commands: Commands) {
 
 
 }
+
+fn setup_gameplay_ui(mut commands: Commands){
+
+
+    commands.spawn((
+        Node {
+            width: Val::Percent(100.0),
+            height: Val::Percent(100.0),
+            flex_direction: FlexDirection::Row,
+            align_items: AlignItems::FlexEnd,
+            justify_content: JustifyContent::Center,
+            row_gap: Val::Px(10.0),
+            ..default()
+        },
+        GameData
+
+    ))
+        .with_children(|parent| {
+            parent.spawn((
+                Button,
+
+                Node {
+                    width: Val::Percent(90.0),
+                    height: Val::Percent(25.0),
+                    border: UiRect::all(Val::Px(5.0)),
+                    ..default()
+
+                },
+                BackgroundColor::from(Color::srgb(0.15, 0.15, 0.15)),
+                BorderColor::from(Color::WHITE),
+                ));
+        });
+
+}
+
+
 
 fn game_ui_action(
     interaction_query: Query<(&Interaction, &GameButtonAction), (Changed<Interaction>, With<Button>)>,
