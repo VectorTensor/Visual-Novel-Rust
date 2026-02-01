@@ -2,6 +2,7 @@ use bevy::prelude::*;
 use crate::AppState;
 use crate::utils::GameButtonAction;
 use crate::spawn_button;
+use crate::simple_box;
 
 pub struct GamePlugin;
 
@@ -80,7 +81,7 @@ fn setup_gameplay_ui(mut commands: Commands){
 
     ))
         .with_children(|parent| {
-            spawn_button!(parent, Val::Percent(90.0), Val::Percent(25.0), None::<&str>, None::<GameButtonAction>);
+            simple_box!(parent, Val::Percent(90.0), Val::Percent(25.0), None::<&str>);
         });
 
 }
