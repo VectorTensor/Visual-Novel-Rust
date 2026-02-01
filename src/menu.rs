@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use crate::AppState;
+use crate::{spawn_button, AppState};
 use crate::utils::{MenuButtonAction};
 
 pub struct MenuPlugin;
@@ -41,31 +41,7 @@ fn setup_menu(mut commands: Commands) {
         ))
         .with_children(|parent| {
             for (text, action) in buttons {
-                parent
-                    .spawn((
-                        Button,
-                        Node {
-                            width: Val::Px(150.0),
-                            height: Val::Px(65.0),
-                            border: UiRect::all(Val::Px(5.0)),
-                            justify_content: JustifyContent::Center,
-                            align_items: AlignItems::Center,
-                            ..default()
-                        },
-                        BackgroundColor::from(Color::srgb(0.15, 0.15, 0.15)),
-                        BorderColor::from(Color::WHITE),
-                        action,
-                    ))
-                    .with_children(|parent| {
-                        parent.spawn((
-                            Text::new(text),
-                            TextFont {
-                                font_size: 40.0,
-                                ..default()
-                            },
-                            TextColor(Color::WHITE),
-                        ));
-                    });
+                spawn_button!(parent, Val::Px(150.0), Val::Px(65.0), Some(text), Some(action))
             }
         });
 }
