@@ -17,6 +17,7 @@ pub enum GameButtonAction {
 macro_rules! spawn_button {
     ($parent:expr, $width:expr, $height:expr, $text:expr, $action:expr) => {
         {
+            use bevy::prelude::*;
             let mut button_entity = $parent.spawn((
                 Button,
                 Node {
@@ -56,6 +57,7 @@ macro_rules! spawn_button {
 macro_rules! simple_box {
     ($parent:expr, $width:expr, $height:expr, $text:expr) => {
         {
+            use bevy::prelude::*;
             let mut box_entity = $parent.spawn((
                 Node {
                     width: $width,
